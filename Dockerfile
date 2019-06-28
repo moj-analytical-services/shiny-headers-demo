@@ -3,7 +3,8 @@ FROM quay.io/mojanalytics/rshiny:3.5.1
 WORKDIR /srv/shiny-server
 
 ENV PATH="/opt/shiny-server/bin:/opt/shiny-server/ext/node/bin:${PATH}"
-ENV SHINY_APP /srv/shiny-server
+ENV SHINY_APP=/srv/shiny-server
+ENV NODE_ENV=production
 
 # ENV SHINY_GAID <your google analytics token here>
 
