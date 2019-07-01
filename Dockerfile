@@ -28,4 +28,6 @@ ADD . .
 
 CMD analytics-platform-shiny-server
 
-EXPOSE 80
+USER shiny
+CMD analytics-platform-shiny-server
+EXPOSE 9999
