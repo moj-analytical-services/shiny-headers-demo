@@ -8,6 +8,8 @@
 #
 
 library(shiny)
+library(httr)
+library(jsonlite)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -27,7 +29,9 @@ ui <- fluidPage(
         h3("Value of specified header"),
         verbatimTextOutput("value"),
         h3("Value of HTTP_USER_EMAIL header"),
-        verbatimTextOutput("user_email")
+        verbatimTextOutput("user_email"),
+        h3("Value of user profile:"),
+        verbatimTextOutput("user_profile")
       )
    )
 )
@@ -52,6 +56,11 @@ server <- function(input, output, session) {
 
   output$user_email <- renderText({
     return (get("HTTP_USER_EMAIL", envir=session$request))
+  })
+
+  profile <- fromJSON(content(GET("http://localhost:3001/userinfo", add_headers(cookie=get("HTTP_COOKIE", envir=session$request))), "text"))
+  output$user_profile <- renderPrint({
+    return (profile)
   })
 }
 
