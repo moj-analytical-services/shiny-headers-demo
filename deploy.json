@@ -1,10 +1,13 @@
 {
-  "$schema":"https://cdn.jsdelivr.net/gh/moj-analytical-services/deploy.json@v1.1.0/deploy.schema.json",
-  "mojanalytics-deploy": "v1.1.0",
+  "$schema":"https://cdn.jsdelivr.net/gh/moj-analytical-services/deploy.json@v1.2.0/deploy.schema.json",
+  "mojanalytics-deploy": "v1.2.0",
   "disable_authentication": false,
   "port": "9999",
   "allowed_ip_ranges": [
-    "Any"
+    "DOM1",
+    "Digital Wifi and VPN",
+    "102PF Wifi",
+    "Alan Turing Institute"
   ],
   "connections": ["email", "nomis"]
 }
